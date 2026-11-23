@@ -1,6 +1,6 @@
 ---
 name: evidence-ledger-and-phase-handoff-convention
-description: Produces evidence ledgers (a fixed-field record of exactly what was read, what was skipped, what each claim's verification status is, and what remains unresolved) and phase-handoff documents (a compact, self-contained brief that lets a new session or agent resume work with zero other context). Invoke this skill whenever an agent finishes a unit of research, analysis, review, or implementation work whose claims another session will rely on without re-deriving them, or whenever an agent is closing out a phase, workstream, or long session and another agent or a future session needs to pick up the work next.
+description: Produces evidence ledgers (what was read, skipped, verified, unresolved) and phase-handoff briefs that let a new session resume with no other context. Use when finishing work others will rely on, or closing a phase or session.
 ---
 
 # Evidence ledgers and phase-handoff conventions

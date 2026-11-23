@@ -33,27 +33,25 @@ mixed team of humans and agents.
 
 ## Installation
 
-This is an **Agent Skill** — a portable folder following the `SKILL.md`
-convention. To use it with an agent runtime that supports that convention
-(including Claude Code), copy this folder into that runtime's skills
-directory:
+This is an **Agent Skill**: a portable folder following the `SKILL.md`
+convention. No script runs and nothing else needs installing.
 
-```sh
-# Claude Code
-cp -r evidence-ledger-and-phase-handoff-convention .claude/skills/
+| Surface | How | Status |
+|---|---|---|
+| Claude Code | `./install.sh --claude` (symlinks into `~/.claude/skills/`) | not tested |
+| Codex | `./install.sh --agents --project DIR` (`.agents/skills/`) | not tested |
+| Gemini CLI | `./install.sh --agents --project DIR` or `--gemini` pointer block | not tested |
+| Cursor | `./install.sh --agents --project DIR` (reads `.agents/skills/`) | not tested |
+| Copilot | `./install.sh --copilot --project DIR` (pointer block) | not tested |
+| ChatGPT, Claude.ai, Gemini (chat) | paste [PROMPT.md](./PROMPT.md) | not tested |
 
-# Any other runtime supporting the SKILL.md convention
-cp -r evidence-ledger-and-phase-handoff-convention <your-runtime's-skills-dir>/
-```
+Run `./install.sh` with no flags to see options and detected tools. Add
+`--copy` to copy instead of symlink, `--dry-run` to preview and
+`--uninstall` to remove only what the installer created.
 
-The agent then picks it up automatically when a task matches — finishing
-a piece of analysis whose claims another session will rely on, or closing
-out a phase/workstream/session for someone else (or your future self) to
-continue.
-
-No script is bundled with this skill; it is a documentation/prose
-convention, not a tool. Nothing needs to be installed beyond the folder
-itself.
+The agent picks the skill up when a task matches: finishing analysis whose
+claims another session will rely on, or closing out a phase, workstream or
+session for someone else (or your future self) to continue.
 
 ## What's inside
 
@@ -67,6 +65,9 @@ evidence-ledger-and-phase-handoff-convention/
 ├── examples/
 │   ├── evidence-ledger-example.md           # complete synthetic worked example
 │   └── phase-handoff-example.md             # complete synthetic worked example
+├── AGENTS.md, CLAUDE.md, GEMINI.md        # agent instructions (pointers to AGENTS.md)
+├── PROMPT.md                                # paste-in version for chat UIs
+├── install.sh                               # per-platform installer
 ├── LICENSE
 └── README.md
 ```
@@ -99,6 +100,15 @@ it's fine. That's the whole discipline in miniature — see
 `examples/phase-handoff-example.md` for the full versions, and `SKILL.md`
 for the reasoning behind each field.
 
+## Related
+
+- [cross-session-agent-handoff-prompt-template](https://github.com/hyderhusainarastu/cross-session-agent-handoff-prompt-template): a copy-paste prompt for handing a task to a fresh session.
+- [multi-agent-orchestration-playbook](https://github.com/hyderhusainarastu/multi-agent-orchestration-playbook): patterns for coordinating several agents; this convention covers the records they leave behind.
+
+Keywords: agent handoff, evidence ledger, audit trail, multi-agent, context engineering, session resume, research workflow.
+
 ## License
 
 MIT — see [LICENSE](./LICENSE).
+
+Part of palimnote-skills - more at https://github.com/hyderhusainarastu
